@@ -27,8 +27,23 @@ const COLOR ={
 const doorBox =new Box(10,10,imgWithSrc(texture),1,1);
 const doorBox2 =new Box(20,34,imgWithSrc(door),1,0.1);
 
-const mapWall = [new Box(20,30,COLOR.BLUE),doorBox,doorBox2];
-const camera = new Camera(20,20,60,0.2);
+const mapWalls = [
+    [0,0],
+    [1,0],
+    [2,0],
+    [3,0],
+    [0,1],
+    [0,2],
+    [0,3],
+    [0,4],
+    [2,4],
+    [3,5]
+].map(([x,y])=>{
+    return new Box(x,y,imgWithSrc(texture),1,1);
+})
+
+const mapWall = [new Box(20,30,COLOR.BLUE),doorBox,doorBox2,...mapWalls];
+const camera = new Camera(1,1,60,0.2);
 
 const keyDown = [
     {
